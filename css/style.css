@@ -1,0 +1,140 @@
+
+body {
+    background: linear-gradient(120deg, #f76a8c, #f8dc88);
+    min-height: 100vh;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.main {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 35vh;
+    position: relative;
+}
+
+.title {
+    display: inline-block;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.tomato {
+    position: absolute;
+    width: 5vh;
+    margin: 0.5rem;
+    transition: all 0.5s ease;
+    
+}
+
+.tomato:hover {
+    transform: rotateZ(30deg);
+}
+
+.pomo:hover {
+    color: #c70039;
+    cursor: default;
+}
+
+.todo-title:hover {
+    color: rgb(73, 204, 73);
+    cursor: default;
+}
+
+.todo-input {
+    border-radius: 10px;
+    padding: 0.5rem;
+    border: none;
+    font-size: 2rem;
+    background: white;
+}
+
+
+.todo-input:focus {
+    outline: 0;
+}
+
+::placeholder {
+    opacity: 0.8;
+    font-size: 1.5rem;
+}
+
+.add-todo {
+    padding: 0.5rem;
+    font-size: 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #f76a8c;
+    background: white;
+    border: none;
+    transition: all 0.5s ease;
+}
+
+.add-todo:hover {
+    background: #f76a8c;
+    color: white;
+}
+
+.todos {
+    width: 30vh;
+    list-style: none;
+}
+
+.todo {
+    margin: 0.5rem;
+    background: white;
+    color: black;
+    display: flex;
+   justify-content: space-between;
+   align-items: center;
+   border-radius: 10px;
+   transition: all 0.5s ease;
+}
+
+.todo-item {
+    flex: 1;
+    font-size: 1.5rem;
+    padding: 1.2rem;
+    transition: all 0.5s ease;
+}
+
+.trash-btn, .complete-btn {
+    margin: 1px;
+    border-radius: 10px;
+    background: #f76a8c;
+    border: none;
+    color: white;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.5s ease;
+}
+
+
+.trash-btn:hover {
+    background: #eb4559;
+    color: white;
+}
+
+.complete-btn:hover {
+    background: rgb(73, 204, 73);
+    color: white;
+}
+
+.fa-trash, .fa-check {
+    pointer-events: none;
+}
+
+.todo-complete {
+    text-decoration: line-through;
+    opacity:
+     0.5;
+}
+
+.todo-trash {
+    transform: translateY(10rem) rotateZ(30deg);
+    opacity: 0;
+}
