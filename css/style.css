@@ -142,8 +142,9 @@ body {
     .main {
         width: 50vh;
     }
-    .title {
-        font-size: 2rem;
+
+    .tomato {
+        display: none;
     }
 
     .todos {
