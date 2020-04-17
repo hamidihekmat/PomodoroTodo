@@ -13,6 +13,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 40vh;
+    min-width: 40vw;
     position: relative;
 }
 
@@ -78,7 +79,7 @@ body {
 }
 
 .todos {
-    width: 35vh;
+    width: 100%;
     list-style: none;
 }
 
@@ -139,6 +140,7 @@ body {
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
     .main {
         width: 50vh;
     }
@@ -149,9 +151,6 @@ body {
 
     .todos {
         width: 40vh;
-    }
-    .todo-input {
-        width: 35vh;
     }
     .todos {
         padding: 0.5rem;
