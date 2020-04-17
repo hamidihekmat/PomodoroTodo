@@ -12,7 +12,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 35vh;
+    min-height: 40vh;
     position: relative;
 }
 
@@ -79,7 +79,7 @@ body {
 }
 
 .todos {
-    width: 30vh;
+    width: 35vh;
     list-style: none;
 }
 
@@ -138,3 +138,23 @@ body {
     transform: translateY(10rem) rotateZ(30deg);
     opacity: 0;
 }
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .main {
+        width: 50vh;
+    }
+
+    .todos {
+        width: 40vh;
+    }
+    .todo-input {
+        width: 35vh;
+    }
+    .todos {
+        padding: 0.5rem;
+    }
+    .trash-btn, .complete-btn  {
+        font-size: 1rem;
+    }
+    }
+    
