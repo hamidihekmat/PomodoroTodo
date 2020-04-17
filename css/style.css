@@ -144,7 +144,16 @@ body {
         margin: 0;
         padding: 0;
     }
-
+    .todo-input {
+        padding: 0.5rem;
+        border: none;
+        font-size: 1.5rem;
+        background: white;
+    }
+    
+    .add-todo {
+        font-size: 1.5rem;
+    }
 
     .tomato {
         display: none;
@@ -152,6 +161,7 @@ body {
 
     .todos {
         padding: 0.5rem;
+        font-size: 1.5rem;;
     }
    
     .trash-btn, .complete-btn  {
