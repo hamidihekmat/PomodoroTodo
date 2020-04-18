@@ -9,13 +9,8 @@ class TodoApp {
 
         
     };
-
-    appUpdater() {
-        this.todos = JSON.parse(localStorage.getItem('todos')) || [];
-    };
     
     addTodo(todo) {
-        this.appUpdater();
         todo.name = `todo${this.todos.length + 1}`;
         this.complete = todo.complete;
         this.todos.push(todo);
