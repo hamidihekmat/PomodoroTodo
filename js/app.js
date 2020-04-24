@@ -30,11 +30,11 @@ class TodoApp {
         const importButton = document.createElement('div');
         importButton.classList.add('important-btn');
         if (todo.important) {
-            importButton.innerHTML = '<i class="fas fa-star fa-2x"></i>';
+            importButton.innerHTML = '<i class="fas fa-star fa-lg"></i>';
 
         }
         else {
-            importButton.innerHTML = '<i class="far fa-star fa-2x"></i>';
+            importButton.innerHTML = '<i class="far fa-star fa-lg"></i>';
         }
         todoItemDiv.appendChild(importButton);
         // create todo item
@@ -159,16 +159,15 @@ const completeTodo = () => {
         if (event.target.classList[0] == 'important-btn') {
             const todo = event.target.parentElement;
             const important = app.isImportant(todo.classList[1]);
-            console.log(important);
             if (important){
-                event.target.innerHTML = '<i class="far fa-star fa-2x"></i>';
+                event.target.innerHTML = '<i class="far fa-star fa-lg"></i>';
                 app.toggleImportant(todo.classList[1]);
             }
             else {
 
                 app.toggleImportant(todo.classList[1]);
                 app.importantTodo(todo.classList[1]);
-                event.target.innerHTML = '<i class="fas fa-star fa-2x"></i>';
+                event.target.innerHTML = '<i class="fas fa-star fa-lg"></i>';
                 todosDiv.insertAdjacentElement('afterbegin', todo);
             }
 
