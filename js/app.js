@@ -26,6 +26,17 @@ class TodoApp {
         if (todo.complete) {
             todoItemDiv.classList.add('todo-complete');
         }
+        // create important button 
+        const importButton = document.createElement('div');
+        importButton.classList.add('important-btn');
+        if (todo.important) {
+            importButton.innerHTML = '<i class="fas fa-star fa-2x"></i>';
+
+        }
+        else {
+            importButton.innerHTML = '<i class="far fa-star fa-2x"></i>';
+        }
+        todoItemDiv.appendChild(importButton);
         // create todo item
         const todoItem = document.createElement('li');
         todoItem.classList.add('todo-item');
@@ -65,6 +76,44 @@ class TodoApp {
         });
     }
 
+    toggleImportant(name) {
+        this.todos.forEach(item => {
+            if (item.name == name) {
+                if (item.important) {
+                    item.important =false;
+                }
+                else {
+                    item.important = true;
+                }
+            }
+            this.myStorage.setItem('todos', JSON.stringify(this.todos));
+        });
+    }
+
+    importantTodo(name) {
+        // sort the todo
+        this.todos.forEach((item, index) => {
+            if (item.name == name) {
+                const tempItem = item;
+                this.todos.splice(index, 1);
+                this.todos.splice(0, 0, tempItem);
+            }
+            this.myStorage.setItem('todos', JSON.stringify(this.todos));
+        });
+    }
+
+    isImportant(name) {
+        let important = false;
+        this.todos.forEach(item => {
+            if (item.name == name) {
+                if (item.important) {
+                    important = true;
+                }
+            }
+        });
+        return important;
+    }
+
 };
 
 
@@ -85,7 +134,7 @@ const addingTodo = () => {
     submit.addEventListener('click', (event) => {
         event.preventDefault();
         if (todoInput.value) {
-            let todo = {'content' : `${todoInput.value}`, 'completed': false};
+            let todo = {'content' : `${todoInput.value}`, 'completed': false, 'important' : false};
             app.addTodo(todo);
             todoInput.value = '';
         }
@@ -106,6 +155,23 @@ const completeTodo = () => {
             todo.addEventListener('transitionend', () => {
                 todo.remove();
             } );
+        }
+        if (event.target.classList[0] == 'important-btn') {
+            const todo = event.target.parentElement;
+            const important = app.isImportant(todo.classList[1]);
+            console.log(important);
+            if (important){
+                event.target.innerHTML = '<i class="far fa-star fa-2x"></i>';
+                app.toggleImportant(todo.classList[1]);
+            }
+            else {
+
+                app.toggleImportant(todo.classList[1]);
+                app.importantTodo(todo.classList[1]);
+                event.target.innerHTML = '<i class="fas fa-star fa-2x"></i>';
+                todosDiv.insertAdjacentElement('afterbegin', todo);
+            }
+
         }
     });
 };
